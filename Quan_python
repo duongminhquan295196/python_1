@@ -1,0 +1,68 @@
+#Question 1: Save the following array to a csv file
+
+import numpy as np
+
+array_1 = np.array([[1,1,1],[2,2,2],[3,3,3]])
+
+np.savetxt('array 1.csv', array_1, delimiter=",")
+
+
+#Question 2: Read the csv file you made in Question 1
+
+#import numpy as np
+
+#a= np.genfromtxt('array 1.csv', delimiter=',')
+
+#print(a)
+
+
+#Question 3: Read “1.tif”, convert into an array and write it to a csv file.
+
+import numpy as np
+from PIL import Image
+
+a = Image.open('1.tif')
+b = np.array(a)
+
+np.savetxt('array 3.csv', b, delimiter=',')
+
+#Question 4:Define a function for the operation in Question 3
+
+    
+import numpy as np
+from PIL import Image
+
+def convert(a):
+    b = Image.open(a)
+    c = np.array(b)
+    return print(c)
+    
+convert('1.tif')
+
+#Problem 5: Python program to find files recursively using Python
+import glob
+import numpy as np
+from PIL import Image
+
+
+#5-1: Ask the folder name in the console
+file = input('Folder name: ')
+
+#5-2: Find all the tiff files in the folder
+files = glob.glob('/Users/macbookair/Desktop/Code Chemistry/**/*.tif', recursive = True)
+for file in files:
+	print(file)
+    
+#5-3: Read all the files found in 5-2
+
+for tif in glob.glob("*.tif"):
+        y = Image.open(tif) 
+        yarray=np.array(y)
+        tif2=tif.replace(".tif",'')
+        np.savetxt(f'{tif2}.csv', yarray, delimiter=',') #5.4
+ 
+
+
+
+
+
